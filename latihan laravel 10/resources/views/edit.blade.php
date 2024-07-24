@@ -12,7 +12,7 @@
         <div class="d-flex justify-content-center" >
             <div class="card m-3 p-4">
             <div class="card-body m-2 p-3">
-                <form action="/updatedata/{{ $data->id }}" method="POST" enctype="multipart/form-data">
+                <form action="/updatedatakelas/{{ $data->id }}" method="POST" enctype="multipart/form-data">
                     @csrf
 
                     <label for="">Kelas</label>

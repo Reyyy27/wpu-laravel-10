@@ -68,7 +68,7 @@
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
               </div>
               <div class="modal-body">
-                <form action="/insertdata" method="POST" enctype="multipart/form-data">
+                <form action="/insertdatakelas" method="POST" enctype="multipart/form-data">
                   @csrf
                   <label class="form-label">Kelas</label>
                   <input type="text" name="kelas" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
@@ -130,9 +130,9 @@
                     <td> <!-- action btn -->
                       <button type="button" class="btn btn-outline-secondary">Lihat Data</button>
                          
-                        <a href="/editdata/{{ $row->id }}" class="btn btn-outline-primary">Edit Data</a>
+                        <a href="/editdatakelas/{{ $row->id }}" class="btn btn-outline-primary">Edit Data</a>
                         
-                        <a href="/delete/{{ $row->id }}" class="btn btn-outline-danger">Hapus Data</a>
+                        <a href="/deletekelas/{{ $row->id }}" class="btn btn-outline-danger">Hapus Data</a>
                         
                     </td>
                 </tr>
