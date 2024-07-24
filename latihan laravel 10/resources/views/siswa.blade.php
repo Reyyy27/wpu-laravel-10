@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Kelas</title>
+    <title>Siswa</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
   </head>
   <body>
@@ -20,11 +20,11 @@
             <br>
             <ul class="nav nav-pills flex-column mb-auto">
               <li class="nav-item">
-                  <button type="button" class="btn btn-outline-dark m-1" >Kelas</button>
+                  <a href="/" type="button" class="btn btn-outline-dark m-1" >Kelas</a>
               </li>
               
               <li>
-                  <a href="siswa" type="button" class="btn btn-outline-dark m-1">Murid</a>
+                  <button type="button" class="btn btn-outline-dark m-1">Murid</button>
               </li>
               
               <li>
@@ -38,7 +38,7 @@
           <!--navbar-->
   <div class="col w-auto">
         <nav class="navbar bg-body-tertiary p-3" style="height:75px ;outline: 1px solid black ;">
-            <a class="navbar-brand">Kelas</a>
+            <a class="navbar-brand">Siswa</a>
               <button class="btn btn-outline-dark" type="submit">logout</button>
         </nav>
         
@@ -55,8 +55,8 @@
       <div class="card m-4" style="outline: 1px solid black ;">
       <div class="card-header" style="outline: 1px solid black ;">
         <div class="container d-flex justify-content-between">
-          <div class="navbar-brand p-2">Kelas</div>
-          <button type="button" class="btn btn-outline-dark d-flex justify-content-end" data-bs-toggle="modal" data-bs-target="#tambahdata">Tambah Kelas</button>
+          <div class="navbar-brand p-2">Siswa</div>
+          <button type="button" class="btn btn-outline-dark d-flex justify-content-end" data-bs-toggle="modal" data-bs-target="#tambahdata">Tambah Siswa</button>
         </div>
 
       <!-- Modal -->
@@ -64,12 +64,18 @@
           <div class="modal-dialog">
             <div class="modal-content">
               <div class="modal-header">
-                <h1 class="modal-title fs-5" id="tambahdatakelas">Tambah Kelas</h1>
+                <h1 class="modal-title fs-5" id="tambahdatakelas">Tambah Siswa</h1>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
               </div>
               <div class="modal-body">
                 <form action="/insertdata" method="POST" enctype="multipart/form-data">
                   @csrf
+                  <label class="form-label">Nis</label>
+                  <input type="text" name="nis" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
+                  
+                  <label class="form-label">Nama</label>
+                  <input type="text" name="nama" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
+
                   <label class="form-label">Kelas</label>
                   <input type="text" name="kelas" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
                   
@@ -93,7 +99,7 @@
                         <button class="btn dropdown-toggle-split d-flex" data-bs-toggle="dropdown" aria-expanded="false" style="outline: 1px solid black">
                           
                         </button>
-                        
+              <!-- dropdown-->
                         <ul class="dropdown-menu ">
                           <li><a class="dropdown-item" href="#">10</a></li>
                           <li><a class="dropdown-item" href="#">50</a></li>
@@ -112,6 +118,8 @@
                 
                 <tr>
                     <td>No</td>
+                    <td>NIS</td>
+                    <td>Nama</td>
                     <td>Kelas</td>
                     <td>Jurusan</td>
                     <td>Aksi</td>
@@ -125,6 +133,8 @@
 
                 <tr>
                     <td>{{ $no++ }}</td> <!-- no -->
+                    <td>{{ $row->nis }}</td> <!-- kelas -->
+                    <td>{{ $row->nama }}</td> <!-- kelas -->
                     <td>{{ $row->kelas }}</td> <!-- kelas -->
                     <td>{{ $row->jurusan }}</td> <!-- jurusan -->
                     <td> <!-- action btn -->

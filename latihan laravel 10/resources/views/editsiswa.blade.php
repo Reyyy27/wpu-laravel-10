@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Edit Kelas</title>
+    <title>Edit Siswa</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
   </head>
   <body>
@@ -14,6 +14,12 @@
             <div class="card-body m-2 p-3">
                 <form action="/updatedata/{{ $data->id }}" method="POST" enctype="multipart/form-data">
                     @csrf
+
+                    <label for="">NIS</label>
+                    <input type="text" name="nis" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" value="{{ $data->nis }}">
+
+                    <label for="">Nama</label>
+                    <input type="text" name="nama" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" value="{{ $data->nama }}">
 
                     <label for="">Kelas</label>
                     <input type="text" name="kelas" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" value="{{ $data->kelas }}">

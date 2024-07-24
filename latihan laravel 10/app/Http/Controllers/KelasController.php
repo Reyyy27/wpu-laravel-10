@@ -9,12 +9,45 @@ class KelasController extends Controller
     
     public function index() 
     {
-        return view('index');
+        $data = kelas::all();
+       
+        return view('index',compact('data'));
     
     }
 
     public function create()
     {
-
+        return view('index');
     }
+
+    public function insertdata(Request $request)
+    {
+        kelas::create($request->all());
+
+        return redirect()->route('kelas.index')->with('success','Data Berhasil Di Tambahkan');
+    }
+
+    public function editdata($id){
+
+        $data = kelas::find($id);
+
+        return view('edit', compact('data') );
+    }
+
+    public function updatedata(Request $request, $id){
+
+        $data = kelas::find($id);
+        $data->update($request->all());  
+
+        return redirect()->route('kelas.index')->with('success','Data Berhasil Di Update');
+    }
+
+    public function delete($id){
+
+        $data = kelas::find($id);
+        $data->delete();
+
+        return redirect()->route('kelas.index')->with('success','Data Berhasil Di Hapus');
+    }
+
 }
