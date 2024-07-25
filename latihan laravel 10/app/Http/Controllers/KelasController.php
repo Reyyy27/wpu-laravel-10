@@ -4,14 +4,17 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\kelas;
+use App\Models\siswa;
+
 class KelasController extends Controller
 {
-    
     public function index() 
     {
         $data = kelas::all();
        
-        return view('index',compact('data'));
+        $siswa = siswa::all();
+
+        return view('index',compact('data','siswa'));
     
     }
 

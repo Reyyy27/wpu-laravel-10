@@ -8,6 +8,11 @@ use Illuminate\Database\Eloquent\Model;
 class siswa extends Model
 {
     use HasFactory;
-
+ 
     protected $guarded = [];
+
+    public function kelas()
+    {
+        return $this->belongsTo(kelas::class);
+    }
 }

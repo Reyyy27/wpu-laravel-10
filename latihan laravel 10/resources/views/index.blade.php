@@ -114,11 +114,14 @@
                     <td>No</td>
                     <td>Kelas</td>
                     <td>Jurusan</td>
+                    <td>Jumlah Siswa</td>
                     <td>Aksi</td>
                 </tr>
 
                 @php
                     $no = 1;
+                    
+
                 @endphp
 
                 @foreach ($data as $row)
@@ -127,6 +130,7 @@
                     <td>{{ $no++ }}</td> <!-- no -->
                     <td>{{ $row->kelas }}</td> <!-- kelas -->
                     <td>{{ $row->jurusan }}</td> <!-- jurusan -->
+                    <td>{{ $row->siswa->count() }}</td>
                     <td> <!-- action btn -->
                       <button type="button" class="btn btn-outline-secondary">Lihat Data</button>
                          

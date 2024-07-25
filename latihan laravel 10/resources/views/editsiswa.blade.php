@@ -22,11 +22,9 @@
                     <input type="text" name="nama" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" value="{{ $data->nama }}">
 
                     <label for="">Kelas</label>
-                    <input type="text" name="kelas" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" value="{{ $data->kelas }}">
+                    <input type="text" name="kelas" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" value="{{ $data->kelas->kelas }}">
+
                 
-                    <label for="">Jurusan</label>
-                    <input type="text" name="jurusan" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" value="{{ $data->jurusan }}">
-                    
                     <br>
                     <button type="submit" class="btn btn-outline-primary">Save</button>
                 </form>

@@ -77,10 +77,14 @@
                   <input type="text" name="nama" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
 
                   <label class="form-label">Kelas</label>
-                  <input type="text" name="kelas" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
-                  
-                  <label class="form-label">Jurusan</label>
-                  <input type="text" name="jurusan" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
+                  <select class="form-select" aria-label="Default select example" name="kelas_id">
+
+                    <option selected>Kelas</option>
+                    @foreach ($kelas as $kls)
+                    <option value="{{ $kls->id }}">{{ $kls->kelas }} {{ $kls->jurusan }}</option>
+                    @endforeach
+                  </select>
+                 
                 
               </div>
               <div class="modal-footer">
@@ -121,12 +125,13 @@
                     <td>NIS</td>
                     <td>Nama</td>
                     <td>Kelas</td>
-                    <td>Jurusan</td>
                     <td>Aksi</td>
                 </tr>
 
                 @php
                     $no = 1;
+                
+
                 @endphp
 
                 @foreach ($data as $row)
@@ -135,8 +140,7 @@
                     <td>{{ $no++ }}</td> <!-- no -->
                     <td>{{ $row->nis }}</td> <!-- kelas -->
                     <td>{{ $row->nama }}</td> <!-- kelas -->
-                    <td>{{ $row->kelas }}</td> <!-- kelas -->
-                    <td>{{ $row->jurusan }}</td> <!-- jurusan -->
+                    <td>{{ $row->kelas->kelas }} {{ $row->kelas->jurusan }}</td> <!-- kelas -->
                     <td> <!-- action btn -->
                       <button type="button" class="btn btn-outline-secondary">Lihat Data</button>
                          
