@@ -40,7 +40,10 @@ class SiswaController extends Controller
     public function updatedata(Request $request, $id){
 
         $data = siswa::find($id);
-        $data->update($request->all());  
+        
+
+        $data->update($request->all()); 
+         
 
         return redirect()->route('kelas.siswa')->with('success','Data Berhasil Di Update');
     }
