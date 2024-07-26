@@ -2,14 +2,14 @@
 <html lang="en">
   <head>
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <title>Kelas Dashboard</title>
+    <title>Mapel Dashboard</title>
     <meta
       content="width=device-width, initial-scale=1.0, shrink-to-fit=no"
       name="viewport"
     />
     <link
       rel="icon"
-      href="assets/img/kaiadmin/favicon.ico"
+      href="assets/img/kaiadmin/favicon.ico" 
       type="image/x-icon"
     />
 
@@ -93,253 +93,22 @@
                       <a href="/">
                         <span class="sub-item">Kelas</span>
                       </a>
-                      </li>
-                      <li>
-                        <a href="#">
-                          <span class="sub-item">Siswa</span>
-                        </a>
-                      </li>
-                      <li>
-                        <a href="/mapel">
-                          <span class="sub-item">Mapel</span>
-                        </a>
-                      </li>
-                    </li>
-                  </ul>
-                </div>
-              </li>
-            <!--
-            <div>
-              <li class="nav-section">
-                <span class="sidebar-mini-icon">
-                  <i class="fa fa-ellipsis-h"></i>
-                </span>
-                <h4 class="text-section">Components</h4>
-              </li>
-              <li class="nav-item">
-                <a data-bs-toggle="collapse" href="#base">
-                  <i class="fas fa-layer-group"></i>
-                  <p>Base</p>
-                  <span class="caret"></span>
-                </a>
-                <div class="collapse" id="base">
-                  <ul class="nav nav-collapse">
-                    <li>
-                      <a href="components/avatars.html">
-                        <span class="sub-item">Avatars</span>
-                      </a>
                     </li>
                     <li>
-                      <a href="components/buttons.html">
-                        <span class="sub-item">Buttons</span>
+                      <a href="/siswa">
+                        <span class="sub-item">Siswa</span>
                       </a>
-                    </li>
-                    <li>
-                      <a href="components/gridsystem.html">
-                        <span class="sub-item">Grid System</span>
-                      </a>
-                    </li>
-                    <li>
-                      <a href="components/panels.html">
-                        <span class="sub-item">Panels</span>
-                      </a>
-                    </li>
-                    <li>
-                      <a href="components/notifications.html">
-                        <span class="sub-item">Notifications</span>
-                      </a>
-                    </li>
-                    <li>
-                      <a href="components/sweetalert.html">
-                        <span class="sub-item">Sweet Alert</span>
-                      </a>
-                    </li>
-                    <li>
-                      <a href="components/font-awesome-icons.html">
-                        <span class="sub-item">Font Awesome Icons</span>
-                      </a>
-                    </li>
-                    <li>
-                      <a href="components/simple-line-icons.html">
-                        <span class="sub-item">Simple Line Icons</span>
-                      </a>
-                    </li>
-                    <li>
-                      <a href="components/typography.html">
-                        <span class="sub-item">Typography</span>
-                      </a>
-                    </li>
-                  </ul>
-                </div>
-              </li>
-              <li class="nav-item">
-                <a data-bs-toggle="collapse" href="#sidebarLayouts">
-                  <i class="fas fa-th-list"></i>
-                  <p>Sidebar Layouts</p>
-                  <span class="caret"></span>
-                </a>
-                <div class="collapse" id="sidebarLayouts">
-                  <ul class="nav nav-collapse">
-                    <li>
-                      <a href="sidebar-style-2.html">
-                        <span class="sub-item">Sidebar Style 2</span>
-                      </a>
-                    </li>
-                    <li>
-                      <a href="icon-menu.html">
-                        <span class="sub-item">Icon Menu</span>
-                      </a>
-                    </li>
-                  </ul>
-                </div>
-              </li>
-              <li class="nav-item">
-                <a data-bs-toggle="collapse" href="#forms">
-                  <i class="fas fa-pen-square"></i>
-                  <p>Forms</p>
-                  <span class="caret"></span>
-                </a>
-                <div class="collapse" id="forms">
-                  <ul class="nav nav-collapse">
-                    <li>
-                      <a href="forms/forms.html">
-                        <span class="sub-item">Basic Form</span>
-                      </a>
-                    </li>
-                  </ul>
-                </div>
-              </li>
-              <li class="nav-item">
-                <a data-bs-toggle="collapse" href="#tables">
-                  <i class="fas fa-table"></i>
-                  <p>Tables</p>
-                  <span class="caret"></span>
-                </a>
-                <div class="collapse" id="tables">
-                  <ul class="nav nav-collapse">
-                    <li>
-                      <a href="tables/tables.html">
-                        <span class="sub-item">Basic Table</span>
-                      </a>
-                    </li>
-                    <li>
-                      <a href="tables/datatables.html">
-                        <span class="sub-item">Datatables</span>
-                      </a>
-                    </li>
-                  </ul>
-                </div>
-              </li>
-              <li class="nav-item">
-                <a data-bs-toggle="collapse" href="#maps">
-                  <i class="fas fa-map-marker-alt"></i>
-                  <p>Maps</p>
-                  <span class="caret"></span>
-                </a>
-                <div class="collapse" id="maps">
-                  <ul class="nav nav-collapse">
-                    <li>
-                      <a href="maps/googlemaps.html">
-                        <span class="sub-item">Google Maps</span>
-                      </a>
-                    </li>
-                    <li>
-                      <a href="maps/jsvectormap.html">
-                        <span class="sub-item">Jsvectormap</span>
-                      </a>
-                    </li>
-                  </ul>
-                </div>
-              </li>
-              <li class="nav-item">
-                <a data-bs-toggle="collapse" href="#charts">
-                  <i class="far fa-chart-bar"></i>
-                  <p>Charts</p>
-                  <span class="caret"></span>
-                </a>
-                <div class="collapse" id="charts">
-                  <ul class="nav nav-collapse">
-                    <li>
-                      <a href="charts/charts.html">
-                        <span class="sub-item">Chart Js</span>
-                      </a>
-                    </li>
-                    <li>
-                      <a href="charts/sparkline.html">
-                        <span class="sub-item">Sparkline</span>
-                      </a>
-                    </li>
-                  </ul>
-                </div>
-              </li>
-              <li class="nav-item">
-                <a href="widgets.html">
-                  <i class="fas fa-desktop"></i>
-                  <p>Widgets</p>
-                  <span class="badge badge-success">4</span>
-                </a>
-              </li>
-              <li class="nav-item">
-                <a href="../../documentation/index.html">
-                  <i class="fas fa-file"></i>
-                  <p>Documentation</p>
-                  <span class="badge badge-secondary">1</span>
-                </a>
-              </li>
-              <li class="nav-item">
-                <a data-bs-toggle="collapse" href="#submenu">
-                  <i class="fas fa-bars"></i>
-                  <p>Menu Levels</p>
-                  <span class="caret"></span>
-                </a>
-                <div class="collapse" id="submenu">
-                  <ul class="nav nav-collapse">
-                    <li>
-                      <a data-bs-toggle="collapse" href="#subnav1">
-                        <span class="sub-item">Level 1</span>
-                        <span class="caret"></span>
-                      </a>
-                      <div class="collapse" id="subnav1">
-                        <ul class="nav nav-collapse subnav">
-                          <li>
-                            <a href="#">
-                              <span class="sub-item">Level 2</span>
-                            </a>
-                          </li>
-                          <li>
-                            <a href="#">
-                              <span class="sub-item">Level 2</span>
-                            </a>
-                          </li>
-                        </ul>
-                      </div>
-                    </li>
-                    <li>
-                      <a data-bs-toggle="collapse" href="#subnav2">
-                        <span class="sub-item">Level 1</span>
-                        <span class="caret"></span>
-                      </a>
-                      <div class="collapse" id="subnav2">
-                        <ul class="nav nav-collapse subnav">
-                          <li>
-                            <a href="#">
-                              <span class="sub-item">Level 2</span>
-                            </a>
-                          </li>
-                        </ul>
-                      </div>
                     </li>
                     <li>
                       <a href="#">
-                        <span class="sub-item">Level 1</span>
+                        <span class="sub-item">Mapel</span>
                       </a>
                     </li>
                   </ul>
                 </div>
-              </li> 
-            </div>
-            -->
-
+              </li>
+              
+              
             </ul>
           </div>
         </div>
@@ -378,6 +147,7 @@
             class="navbar navbar-header navbar-header-transparent navbar-expand-lg border-bottom"
           >
             <div class="container-fluid">
+
               <nav
                 class="navbar navbar-header-left navbar-expand-lg navbar-form nav-search p-0 d-none d-lg-flex"
               >
@@ -409,7 +179,6 @@
                   >
                     <i class="fa fa-search"></i>
                   </a>
-
                   <ul class="dropdown-menu dropdown-search animated fadeIn">
                     <form class="navbar-left navbar-form nav-search">
                       <div class="input-group">
@@ -418,17 +187,13 @@
                           placeholder="Search ..."
                           class="form-control"
                         />
-                        
                       </div>
                     </form>
                   </ul>
                 </li>
-
-                
                 
                 
 
-                
               </ul>
             </div>
           </nav>
@@ -441,37 +206,30 @@
               class="d-flex align-items-left align-items-md-center flex-column flex-md-row pt-2 pb-4"
             >
               <div>
-                <h3 class="fw-bold mb-3">Siswa</h3>
-                <h6 class="op-7 mb-2">Tampilan Tabel Siswa</h6>
+                <h3 class="fw-bold mb-3">Mapel</h3>
+                <h6 class="op-7 mb-2">Tampilan Tabel Mapel</h6>
               </div>
               <div class="ms-md-auto py-2 py-md-0">
                 
-                <button type="button" class="btn btn-outline-dark d-flex justify-content-end" data-bs-toggle="modal" data-bs-target="#tambahdata">Tambah Siswa</button>
-                <div class="modal fade" id="tambahdata" tabindex="-1" aria-labelledby="tambahdatakelas" aria-hidden="true">
+          <!--       modal           -->
+
+                <button type="button" class="btn btn-outline-dark d-flex justify-content-end" data-bs-toggle="modal" data-bs-target="#tambahdata">Tambah Mapel</button>
+
+                <div class="modal fade" id="tambahdata" tabindex="-1" aria-labelledby="tambahdatamapel" aria-hidden="true">
                   <div class="modal-dialog">
                     <div class="modal-content">
                       <div class="modal-header">
-                        <h1 class="modal-title fs-5" id="tambahdatakelas">Tambah Siswa</h1>
+                        <h1 class="modal-title fs-5" id="tambahdatamapel">Tambah Mapel</h1>
                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                       </div>
                       <div class="modal-body">
-                        <form action="/insertdata" method="POST" enctype="multipart/form-data">
+                        <form action="/insertdatamapel" method="POST" enctype="multipart/form-data">
                           @csrf
-                          <label class="form-label">Nis</label>
-                          <input type="text" name="nis" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
+                          <label class="form-label">Mapel</label>
+                          <input type="text" name="nama_mapel" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
                           
-                          <label class="form-label">Nama</label>
-                          <input type="text" name="nama" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
-        
-                          <label class="form-label">Kelas</label>
-                          <select class="form-select" aria-label="Default select example" name="kelas_id">
-        
-                            <option selected>Kelas</option>
-                            @foreach ($kelas as $kls)
-                            <option value="{{ $kls->id }}">{{ $kls->kelas }} {{ $kls->jurusan }}</option>
-                            @endforeach
-                          </select>
-                         
+                          <label class="form-label">Pengajar</label>
+                          <input type="text" name="nama_guru" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
                         
                       </div>
                       <div class="modal-footer">
@@ -483,6 +241,8 @@
                   </div>
                 </div>
 
+                <!-- batas -->
+
               </div>
             </div>
             
@@ -491,7 +251,7 @@
                 <div class="card card-round">
                   <div class="card-header">
                     <div class="card-head-row card-tools-still-right">
-                      <div class="card-title">Tabel Siswa</div>
+                      <div class="card-title">Tabel Mapel</div>
                       <div class="card-tools">
                         <div class="dropdown">
                           <button
@@ -526,9 +286,8 @@
                         <thead class="thead-light">
                           <tr>
                             <th scope="col">No</th>
-                            <th scope="col" class="text-center">NIS</th>
-                            <th scope="col" class="text-center">Nama</th>
-                            <th scope="col" class="text-center">Kelas</th>
+                            <th scope="col" class="text-center">Mapel</th>
+                            <th scope="col" class="text-center">Guru</th>
                             <th scope="col" class="text-center">Aksi</th>
                           </tr>
                         </thead>
@@ -539,23 +298,23 @@
 
                         <tbody>
                         @foreach ($data as $row)
+                            
+                       
                           <tr>
                             <td>{{ $no++ }}</td> <!-- no -->
-                            <td>{{ $row->nis }}</td> <!-- kelas -->
-                            <td>{{ $row->nama }}</td> <!-- kelas -->
-                            <td>{{ $row->kelas->kelas }} {{ $row->kelas->jurusan }}</td> <!-- kelas -->
+                            <td>{{ $row->nama_mapel }}</td> <!-- kelas -->
+                            <td>{{ $row->nama_guru }}</td> <!-- jurusan -->
                             <td> <!-- action btn -->
                               <button type="button" class="btn btn-outline-secondary">Lihat Data</button>
-                                
-                                <a href="/editdata/{{ $row->id }}" class="btn btn-outline-primary">Edit Data</a>
-                                
-                                <a href="/delete/{{ $row->id }}" class="btn btn-outline-danger">Hapus Data</a>
-                                
+                                <a href="/editdatamapel/{{ $row->id }}" class="btn btn-outline-primary">Edit Data</a>
+
+                                <a href="/deletemapel/{{ $row->id }}" class="btn btn-outline-danger">Hapus Data</a>
                             </td>
                           </tr>
                         
-                          @endforeach
 
+                          
+                          @endforeach
                         </tbody>
                       </table>
                     </div>
