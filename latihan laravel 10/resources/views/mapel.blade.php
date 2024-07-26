@@ -309,6 +309,7 @@
                                 <a href="/editdatamapel/{{ $row->id }}" class="btn btn-outline-primary">Edit Data</a>
 
                                 <a href="/deletemapel/{{ $row->id }}" class="btn btn-outline-danger">Hapus Data</a>
+
                             </td>
                           </tr>
                         
@@ -587,5 +588,8 @@
         fillColor: "rgba(255, 165, 52, .14)",
       });
     </script>
+
+    
+
   </body>
 </html>

@@ -310,13 +310,18 @@
                               <button type="button" class="btn btn-outline-secondary">Lihat Data</button>
                                 <a href="/editdatakelas/{{ $row->id }}" class="btn btn-outline-primary">Edit Data</a>
 
-                                <a href="/deletekelas/{{ $row->id }}" class="btn btn-outline-danger">Hapus Data</a>
+                              <a href="/deletekelas/{{ $row->id }}" class="btn btn-outline-danger">Hapus Data</a>
+                                <!--
+                                <a href="#" class="btn btn-outline-danger delete" data-id="">Hapus Data</a>
+                                -->
                             </td>
                           </tr>
                         
                           @endforeach
                         </tbody>
                       </table>
+
+                      
                     </div>
                   </div>
 
@@ -560,6 +565,7 @@
     <script src="assets/js/setting-demo.js"></script>
     <script src="assets/js/demo.js"></script>
     <script>
+      
       $("#lineChart").sparkline([102, 109, 120, 99, 110, 105, 115], {
         type: "line",
         height: "70",
@@ -587,5 +593,34 @@
         fillColor: "rgba(255, 165, 52, .14)",
       });
     </script>
+
+  <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+
+  <script>
+
+    $('.delete').click(function(){
+      var kelasid = $(this).attr('data-id');
+      swal({
+      title: "Yakin?",
+      text: "Kamu akan menghapus data "+kelasid+"!",
+      icon: "warning",
+      buttons: true,
+      dangerMode: true,
+    })
+    .then((willDelete) => {
+      if (willDelete) {
+        window.location = "/delete/"+kelasid+""
+        swal("Data berhasil dihapus!", {
+          icon: "success",
+        });
+      } else {
+        swal("Data kamu aman!");
+      }
+    });
+
+    });
+
+  </script>
+
   </body>
 </html>

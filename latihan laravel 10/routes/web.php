@@ -44,3 +44,4 @@ Route::post('/updatedatamapel/{id}',[MapelController::class, 'updatedata'])->nam
 Route::get('/deletekelas/{id}',[KelasController::class, 'delete'])->name('delete');
 Route::get('/delete/{id}',[SiswaController::class, 'delete'])->name('delete');
 Route::get('/deletemapel/{id}',[MapelController::class, 'delete'])->name('delete');
+
