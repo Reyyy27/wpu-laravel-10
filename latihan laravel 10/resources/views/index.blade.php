@@ -157,11 +157,9 @@
                       <i class="fa fa-search search-icon"></i>
                     </button>
                   </div>
-                  <input
-                    type="text"
-                    placeholder="Search ..."
-                    class="form-control"
-                  />
+                  <form action="{{ route('kelas.index') }}" method="GET">
+                    <input type="search" name="search" id="searchInput" class="form-control mx-sm-3" placeholder="Search">
+                </form>
                 </div>
               </nav>
 
@@ -180,12 +178,13 @@
                     <i class="fa fa-search"></i>
                   </a>
                   <ul class="dropdown-menu dropdown-search animated fadeIn">
-                    <form class="navbar-left navbar-form nav-search">
+                    <form class="navbar-left navbar-form nav-search" action="/" method="GET">
                       <div class="input-group">
                         <input
                           type="text"
                           placeholder="Search ..."
                           class="form-control"
+                          name="search"
                         />
                       </div>
                     </form>
@@ -298,7 +297,7 @@
                         @endphp
 
                         <tbody>
-                        @foreach ($data as $row)
+                        @foreach ($kelas as $row)
                             
                        
                           <tr>

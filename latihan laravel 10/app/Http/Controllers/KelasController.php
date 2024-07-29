@@ -8,13 +8,19 @@ use App\Models\siswa;
 
 class KelasController extends Controller
 {
-    public function index() 
+    public function index(Request $request) 
     {
-        $data = kelas::all();
-       
+        $search = $request->input('search');
         $siswa = siswa::all();
+        $kelas = kelas::all();
 
-        return view('index',compact('data','siswa'));
+        $kelas = kelas::query()
+                ->where('kelas', 'LIKE', "%{$search}%")
+                ->orWhere('jurusan', 'LIKE', "%{$search}%")
+                ->get();
+
+
+        return view('index',compact('kelas','siswa'));
     
     }
 
@@ -32,23 +38,23 @@ class KelasController extends Controller
 
     public function editdata($id){
 
-        $data = kelas::find($id);
+        $kelas = kelas::find($id);
 
-        return view('edit', compact('data') );
+        return view('edit', compact('kelas') );
     }
 
     public function updatedata(Request $request, $id){
 
-        $data = kelas::find($id);
-        $data->update($request->all());  
+        $kelas = kelas::find($id);
+        $kelas->update($request->all());  
 
         return redirect()->route('kelas.index')->with('success','Data Berhasil Di Update');
     }
 
     public function delete($id){
 
-        $data = kelas::find($id);
-        $data->delete();
+        $kelas = kelas::find($id);
+        $kelas->delete();
 
         return redirect()->route('kelas.index')->with('success','Data Berhasil Di Hapus');
     }

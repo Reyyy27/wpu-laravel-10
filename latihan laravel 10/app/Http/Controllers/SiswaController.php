@@ -8,13 +8,20 @@ use App\Models\kelas;
 
 class SiswaController extends Controller
 {
-    public function index() 
+    public function index(Request $request) 
     {
-        $data = siswa::all();
-        
-        $kelas = kelas::all();
-        
-        return view('siswa',compact('data','kelas'));
+        $search = $request->input('search');
+        $kelas = Kelas::all();
+        $siswa = Siswa::query()
+                ->where('nis', 'LIKE', "%{$search}%")
+                ->orWhere('nama', 'LIKE', "%{$search}%")
+                ->orWhereHas('kelas', function ($query) use ($search) {
+                    $query->where('kelas', 'LIKE', "%{$search}%");
+                          
+                })
+                ->get();
+         
+        return view('siswa',compact('siswa','kelas'));
     
     }
 
@@ -32,17 +39,17 @@ class SiswaController extends Controller
 
     public function editdata($id){
 
-        $data = siswa::find($id);
+        $siswa = siswa::find($id);
 
-        return view('editsiswa', compact('data') );
+        return view('editsiswa', compact('siswa') );
     }
 
     public function updatedata(Request $request, $id){
 
-        $data = siswa::find($id);
+        $siswa = siswa::find($id);
         
 
-        $data->update($request->all()); 
+        $siswa->update($request->all()); 
          
 
         return redirect()->route('kelas.siswa')->with('success','Data Berhasil Di Update');
@@ -50,8 +57,8 @@ class SiswaController extends Controller
 
     public function delete($id){
 
-        $data = siswa::find($id);
-        $data->delete();
+        $siswa = siswa::find($id);
+        $siswa->delete();
 
         return redirect()->route('kelas.siswa')->with('success','Data Berhasil Di Hapus');
     }

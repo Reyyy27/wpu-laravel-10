@@ -66,17 +66,17 @@
                 <h5 class="card-title">Edit Kelas</h5>
               </div>
             <div class="card-body ">
-                <form action="/updatedatamapel/{{ $data->id }}" method="POST" enctype="multipart/form-data">
+                <form action="/updatedatamapel/{{ $mapel->id }}" method="POST" enctype="multipart/form-data">
                     @csrf
 
                     <div class="form-group">
                       <label for="nama_mapel" class="form-label">Mapel</label>
-                      <input type="text" name="nama_mapel" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" value="{{ $data->nama_mapel }}">
+                      <input type="text" name="nama_mapel" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" value="{{ $mapel->nama_mapel }}">
                     </div>
                 
                     <div class="form-group">
                       <label for="nama_guru" class="form-label">Pengajar</label>
-                      <input type="text" name="nama_guru" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" value="{{ $data->nama_guru }}">
+                      <input type="text" name="nama_guru" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" value="{{ $mapel->nama_guru }}">
                     </div>
                     
                     <br>

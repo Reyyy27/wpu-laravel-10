@@ -157,11 +157,9 @@
                       <i class="fa fa-search search-icon"></i>
                     </button>
                   </div>
-                  <input
-                    type="text"
-                    placeholder="Search ..."
-                    class="form-control"
-                  />
+                  <form action="{{ route('kelas.mapel') }}" method="GET">
+                    <input type="search" name="search" id="searchInput" class="form-control mx-sm-3" placeholder="Search">
+                </form>
                 </div>
               </nav>
 
@@ -297,7 +295,7 @@
                         @endphp
 
                         <tbody>
-                        @foreach ($data as $row)
+                        @foreach ($mapel as $row)
                             
                        
                           <tr>

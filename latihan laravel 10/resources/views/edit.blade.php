@@ -66,17 +66,17 @@
                 <h5 class="card-title">Edit Kelas</h5>
               </div>
             <div class="card-body ">
-                <form action="/updatedatakelas/{{ $data->id }}" method="POST" enctype="multipart/form-data">
+                <form action="/updatedatakelas/{{ $kelas->id }}" method="POST" enctype="multipart/form-data">
                     @csrf
 
                     <div class="form-group">
                       <label for="kelas" class="form-label">Kelas</label>
-                      <input type="text" name="kelas" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" value="{{ $data->kelas }}">
+                      <input type="text" name="kelas" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" value="{{ $kelas->kelas }}">
                     </div>
                 
                     <div class="form-group">
                       <label for="jurusan" class="form-label">Jurusan</label>
-                      <input type="text" name="jurusan" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" value="{{ $data->jurusan }}">
+                      <input type="text" name="jurusan" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" value="{{ $kelas->jurusan }}">
                     </div>
                     
                     <br>

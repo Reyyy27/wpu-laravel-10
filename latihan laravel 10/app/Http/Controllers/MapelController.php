@@ -6,11 +6,16 @@ use Illuminate\Http\Request;
 
 class MapelController extends Controller
 {
-    public function index(){
-        $data = mapel::all();
+    public function index(Request $request){
+        $search = $request->input('search');
+
+        $mapel = Mapel::query()
+        ->where('nama_mapel', 'LIKE', "%{$search}%")
+        ->orWhere('nama_guru', 'LIKE', "%{$search}%")
+        ->get();
 
         
-        return view('mapel', compact('data'));
+        return view('mapel', compact('mapel'));
     }
 
     
@@ -28,17 +33,17 @@ class MapelController extends Controller
 
     public function editdata($id){
 
-        $data = mapel::find($id);
+        $mapel = mapel::find($id);
 
-        return view('editmapel', compact('data') );
+        return view('editmapel', compact('mapel') );
     }
 
     public function updatedata(Request $request, $id){
 
-        $data = mapel::find($id);
+        $mapel = mapel::find($id);
         
 
-        $data->update($request->all()); 
+        $mapel->update($request->all()); 
          
 
         return redirect()->route('kelas.mapel')->with('success','Data Berhasil Di Update');
@@ -46,8 +51,8 @@ class MapelController extends Controller
 
     public function delete($id){
 
-        $data = mapel::find($id);
-        $data->delete();
+        $mapel = mapel::find($id);
+        $mapel->delete();
 
         return redirect()->route('kelas.mapel')->with('success','Data Berhasil Di Hapus');
     }
