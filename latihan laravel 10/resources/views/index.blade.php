@@ -104,6 +104,11 @@
                         <span class="sub-item">Mapel</span>
                       </a>
                     </li>
+                    <li>
+                      <a href="/guru">
+                        <span class="sub-item">Guru</span>
+                      </a>
+                    </li>
                   </ul>
                 </div>
               </li>
@@ -306,7 +311,7 @@
                             <td>{{ $row->jurusan }}</td> <!-- jurusan -->
                             <td>{{ $row->siswa->count() }}</td>
                             <td> <!-- action btn -->
-                              <button type="button" class="btn btn-outline-secondary">Lihat Data</button>
+                              
                                 <a href="/editdatakelas/{{ $row->id }}" class="btn btn-outline-primary">Edit Data</a>
 
                               <a href="/deletekelas/{{ $row->id }}" class="btn btn-outline-danger">Hapus Data</a>

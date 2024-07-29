@@ -11,7 +11,7 @@ class MapelController extends Controller
 
         $mapel = Mapel::query()
         ->where('nama_mapel', 'LIKE', "%{$search}%")
-        ->orWhere('nama_guru', 'LIKE', "%{$search}%")
+        ->orWhere('keterangan', 'LIKE', "%{$search}%")
         ->get();
 
         

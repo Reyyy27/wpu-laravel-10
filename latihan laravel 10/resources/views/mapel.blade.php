@@ -104,6 +104,11 @@
                         <span class="sub-item">Mapel</span>
                       </a>
                     </li>
+                    <li>
+                      <a href="/guru">
+                        <span class="sub-item">Guru</span>
+                      </a>
+                    </li>
                   </ul>
                 </div>
               </li>
@@ -226,8 +231,8 @@
                           <label class="form-label">Mapel</label>
                           <input type="text" name="nama_mapel" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
                           
-                          <label class="form-label">Pengajar</label>
-                          <input type="text" name="nama_guru" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
+                          <label class="form-label">Keterangan</label>
+                          <input type="text" name="keterangan" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
                         
                       </div>
                       <div class="modal-footer">
@@ -285,7 +290,7 @@
                           <tr>
                             <th scope="col">No</th>
                             <th scope="col" class="text-center">Mapel</th>
-                            <th scope="col" class="text-center">Guru</th>
+                            <th scope="col" class="text-center">Keterangan</th>
                             <th scope="col" class="text-center">Aksi</th>
                           </tr>
                         </thead>
@@ -300,10 +305,10 @@
                        
                           <tr>
                             <td>{{ $no++ }}</td> <!-- no -->
-                            <td>{{ $row->nama_mapel }}</td> <!-- kelas -->
-                            <td>{{ $row->nama_guru }}</td> <!-- jurusan -->
+                            <td>{{ $row->nama_mapel }}</td> <!-- mapel -->
+                            <td>{{ $row->keterangan }}</td> <!-- ket -->
                             <td> <!-- action btn -->
-                              <button type="button" class="btn btn-outline-secondary">Lihat Data</button>
+                              
                                 <a href="/editdatamapel/{{ $row->id }}" class="btn btn-outline-primary">Edit Data</a>
 
                                 <a href="/deletemapel/{{ $row->id }}" class="btn btn-outline-danger">Hapus Data</a>
