@@ -44,7 +44,7 @@
       .form-label {
         text-align: left;
       }
-      .form-control {
+      .form-control, .form-select {
         width: 75%;
         margin-left: auto;
       }
@@ -65,25 +65,29 @@
               <div class="card-header">
                 <h5 class="card-title">Edit Siswa</h5>
               </div>
-            <div class="card-body ">
+              <div class="card-body">
                 <form action="/updatedata/{{ $siswa->id }}" method="POST" enctype="multipart/form-data">
                     @csrf
 
-
                     <div class="form-group">
-                    <label for="">NIS</label>
-                    <input type="text" name="nis" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" value="{{ $siswa->nis }}">
+                        <label for="">NIS</label>
+                        <input type="text" name="nis" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" value="{{ $siswa->nis }}">
                     </div>
 
                     <div class="form-group">
-                    <label for="">Nama</label>
-                    <input type="text" name="nama" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" value="{{ $siswa->nama }}">
+                        <label for="">Nama</label>
+                        <input type="text" name="nama" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" value="{{ $siswa->nama }}">
                     </div>
-<!--
+
                     <div class="form-group">
-                    <label for="">Jurusan</label>
-                    <input type="text" name="jurusan" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" value="">
-                    </div> -->
+                      <label for="">Kelas</label>
+                        <select class="form-select" id="editKelas" name="kelas_id" aria-label="Default select example">
+                            <option selected>Pilih kelas</option>
+                            @foreach ($kelas as $kls)
+                            <option value="{{ $kls->id }}">{{ $kls->kelas }} {{ $kls->jurusan }}</option>
+                            @endforeach
+                        </select>
+                    </div>
                     
                     <br>
                     <button type="submit" class="btn btn-outline-primary">Save</button>

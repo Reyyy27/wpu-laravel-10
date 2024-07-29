@@ -41,7 +41,8 @@ class SiswaController extends Controller
 
         $siswa = siswa::find($id);
 
-        return view('editsiswa', compact('siswa') );
+        $kelas = Kelas::all();
+        return view('editsiswa', compact('siswa','kelas') );
     }
 
     public function updatedata(Request $request, $id){
