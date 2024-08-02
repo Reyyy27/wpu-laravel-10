@@ -12,6 +12,7 @@
       href="assets/img/kaiadmin/favicon.ico" 
       type="image/x-icon"
     />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/2.1.2/sweetalert.min.css">
 
     <!-- Fonts and icons -->
     <script src="assets/js/plugin/webfont/webfont.min.js"></script>
@@ -311,7 +312,8 @@
                               
                                 <a href="/editdatamapel/{{ $row->id }}" class="btn btn-outline-primary">Edit Data</a>
 
-                                <a href="/deletemapel/{{ $row->id }}" class="btn btn-outline-danger">Hapus Data</a>
+                                <a href="javascript:void(0)" class="btn btn-outline-danger delete" data-id="{{ $row->id }}">Hapus Data</a>
+
 
                             </td>
                           </tr>
@@ -592,7 +594,29 @@
       });
     </script>
 
-    
+<script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/2.1.2/sweetalert.min.js"></script>
+
+<script>
+  document.addEventListener('DOMContentLoaded', function () {
+      document.querySelectorAll('.delete').forEach(function (button) {
+          button.addEventListener('click', function () {
+              var dataId = this.getAttribute('data-id');
+              swal({
+                  title: "Apakah kamu yakin?",
+                  text: "Data ini akan dihapus secara permanen!",
+                  icon: "warning",
+                  buttons: true,
+                  dangerMode: true,
+              }).then((willDelete) => {
+                  if (willDelete) {
+                      window.location.href = "/deletemapel/" + dataId;
+                  }
+              });
+          });
+      });
+  });
+</script>
+
 
   </body>
 </html>

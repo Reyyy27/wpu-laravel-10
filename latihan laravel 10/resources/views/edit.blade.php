@@ -66,7 +66,7 @@
                 <h5 class="card-title">Edit Kelas</h5>
               </div>
             <div class="card-body ">
-                <form action="/updatedatakelas/{{ $kelas->id }}" method="POST" enctype="multipart/form-data">
+                <form id="editKelasForm" action="/updatedatakelas/{{ $kelas->id }}" method="POST" enctype="multipart/form-data">
                     @csrf
 
                     <div class="form-group">
@@ -80,7 +80,7 @@
                     </div>
                     
                     <br>
-                    <button type="submit" class="btn btn-outline-primary">Save</button>
+                    <button type="submit" id="submitBtn" class="btn btn-outline-primary">Save</button>
                 </form>
                
             </div>
@@ -89,8 +89,34 @@
         
     </main>
 
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLR0QB1EB29n3e9lvZjlo7+V0F5FuY1ezDO/FeB4+1" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.min.js" integrity="sha384-0pUGZvbkm6XF6gxjEnlmuGrJXVbNuzT9qBBavbLwCsOGabYfZo0T0to5eqruptLy" crossorigin="anonymous"></script>
+    <script>
+      $(document).ready(function() {
+        $('#editKelasForm').on('submit', function(e) {
+          e.preventDefault(); // Mencegah form submit secara default
+
+          var formData = new FormData(this);
+
+          $.ajax({
+            type: 'POST',
+            url: $(this).attr('action'),
+            data: formData,
+            processData: false,
+            contentType: false,
+            success: function(response) {
+              alert('Data berhasil diupdate!');
+              // Anda bisa menambahkan aksi lain di sini, misalnya menutup modal atau mengupdate bagian halaman lain
+            },
+            error: function(response) {
+              alert('Terjadi kesalahan. Silakan coba lagi.');
+              // Anda bisa menambahkan aksi lain di sini untuk menangani error
+            }
+          });
+        });
+      });
+    </script>
 
 </body>
 </html>

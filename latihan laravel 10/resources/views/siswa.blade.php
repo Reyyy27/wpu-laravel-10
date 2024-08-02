@@ -2,16 +2,27 @@
 <html lang="en">
   <head>
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <title>Kelas Dashboard</title>
+    <title>Siswa Dashboard</title>
     <meta
       content="width=device-width, initial-scale=1.0, shrink-to-fit=no"
       name="viewport"
     />
+    <meta name="csrf-token" content="{{ csrf_token() }}">
+
+    <script>
+      $.ajaxSetup({
+          headers: {
+              'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+          }
+      });
+    </script>
+
     <link
       rel="icon"
       href="assets/img/kaiadmin/favicon.ico"
       type="image/x-icon"
     />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/2.1.2/sweetalert.min.css">
 
     <!-- Fonts and icons -->
     <script src="assets/js/plugin/webfont/webfont.min.js"></script>
@@ -32,6 +43,7 @@
         },
       });
     </script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 
     <!-- CSS Files -->
     <link rel="stylesheet" href="assets/css/bootstrap.min.css" />
@@ -113,237 +125,7 @@
                   </ul>
                 </div>
               </li>
-            <!--
-            <div>
-              <li class="nav-section">
-                <span class="sidebar-mini-icon">
-                  <i class="fa fa-ellipsis-h"></i>
-                </span>
-                <h4 class="text-section">Components</h4>
-              </li>
-              <li class="nav-item">
-                <a data-bs-toggle="collapse" href="#base">
-                  <i class="fas fa-layer-group"></i>
-                  <p>Base</p>
-                  <span class="caret"></span>
-                </a>
-                <div class="collapse" id="base">
-                  <ul class="nav nav-collapse">
-                    <li>
-                      <a href="components/avatars.html">
-                        <span class="sub-item">Avatars</span>
-                      </a>
-                    </li>
-                    <li>
-                      <a href="components/buttons.html">
-                        <span class="sub-item">Buttons</span>
-                      </a>
-                    </li>
-                    <li>
-                      <a href="components/gridsystem.html">
-                        <span class="sub-item">Grid System</span>
-                      </a>
-                    </li>
-                    <li>
-                      <a href="components/panels.html">
-                        <span class="sub-item">Panels</span>
-                      </a>
-                    </li>
-                    <li>
-                      <a href="components/notifications.html">
-                        <span class="sub-item">Notifications</span>
-                      </a>
-                    </li>
-                    <li>
-                      <a href="components/sweetalert.html">
-                        <span class="sub-item">Sweet Alert</span>
-                      </a>
-                    </li>
-                    <li>
-                      <a href="components/font-awesome-icons.html">
-                        <span class="sub-item">Font Awesome Icons</span>
-                      </a>
-                    </li>
-                    <li>
-                      <a href="components/simple-line-icons.html">
-                        <span class="sub-item">Simple Line Icons</span>
-                      </a>
-                    </li>
-                    <li>
-                      <a href="components/typography.html">
-                        <span class="sub-item">Typography</span>
-                      </a>
-                    </li>
-                  </ul>
-                </div>
-              </li>
-              <li class="nav-item">
-                <a data-bs-toggle="collapse" href="#sidebarLayouts">
-                  <i class="fas fa-th-list"></i>
-                  <p>Sidebar Layouts</p>
-                  <span class="caret"></span>
-                </a>
-                <div class="collapse" id="sidebarLayouts">
-                  <ul class="nav nav-collapse">
-                    <li>
-                      <a href="sidebar-style-2.html">
-                        <span class="sub-item">Sidebar Style 2</span>
-                      </a>
-                    </li>
-                    <li>
-                      <a href="icon-menu.html">
-                        <span class="sub-item">Icon Menu</span>
-                      </a>
-                    </li>
-                  </ul>
-                </div>
-              </li>
-              <li class="nav-item">
-                <a data-bs-toggle="collapse" href="#forms">
-                  <i class="fas fa-pen-square"></i>
-                  <p>Forms</p>
-                  <span class="caret"></span>
-                </a>
-                <div class="collapse" id="forms">
-                  <ul class="nav nav-collapse">
-                    <li>
-                      <a href="forms/forms.html">
-                        <span class="sub-item">Basic Form</span>
-                      </a>
-                    </li>
-                  </ul>
-                </div>
-              </li>
-              <li class="nav-item">
-                <a data-bs-toggle="collapse" href="#tables">
-                  <i class="fas fa-table"></i>
-                  <p>Tables</p>
-                  <span class="caret"></span>
-                </a>
-                <div class="collapse" id="tables">
-                  <ul class="nav nav-collapse">
-                    <li>
-                      <a href="tables/tables.html">
-                        <span class="sub-item">Basic Table</span>
-                      </a>
-                    </li>
-                    <li>
-                      <a href="tables/datatables.html">
-                        <span class="sub-item">Datatables</span>
-                      </a>
-                    </li>
-                  </ul>
-                </div>
-              </li>
-              <li class="nav-item">
-                <a data-bs-toggle="collapse" href="#maps">
-                  <i class="fas fa-map-marker-alt"></i>
-                  <p>Maps</p>
-                  <span class="caret"></span>
-                </a>
-                <div class="collapse" id="maps">
-                  <ul class="nav nav-collapse">
-                    <li>
-                      <a href="maps/googlemaps.html">
-                        <span class="sub-item">Google Maps</span>
-                      </a>
-                    </li>
-                    <li>
-                      <a href="maps/jsvectormap.html">
-                        <span class="sub-item">Jsvectormap</span>
-                      </a>
-                    </li>
-                  </ul>
-                </div>
-              </li>
-              <li class="nav-item">
-                <a data-bs-toggle="collapse" href="#charts">
-                  <i class="far fa-chart-bar"></i>
-                  <p>Charts</p>
-                  <span class="caret"></span>
-                </a>
-                <div class="collapse" id="charts">
-                  <ul class="nav nav-collapse">
-                    <li>
-                      <a href="charts/charts.html">
-                        <span class="sub-item">Chart Js</span>
-                      </a>
-                    </li>
-                    <li>
-                      <a href="charts/sparkline.html">
-                        <span class="sub-item">Sparkline</span>
-                      </a>
-                    </li>
-                  </ul>
-                </div>
-              </li>
-              <li class="nav-item">
-                <a href="widgets.html">
-                  <i class="fas fa-desktop"></i>
-                  <p>Widgets</p>
-                  <span class="badge badge-success">4</span>
-                </a>
-              </li>
-              <li class="nav-item">
-                <a href="../../documentation/index.html">
-                  <i class="fas fa-file"></i>
-                  <p>Documentation</p>
-                  <span class="badge badge-secondary">1</span>
-                </a>
-              </li>
-              <li class="nav-item">
-                <a data-bs-toggle="collapse" href="#submenu">
-                  <i class="fas fa-bars"></i>
-                  <p>Menu Levels</p>
-                  <span class="caret"></span>
-                </a>
-                <div class="collapse" id="submenu">
-                  <ul class="nav nav-collapse">
-                    <li>
-                      <a data-bs-toggle="collapse" href="#subnav1">
-                        <span class="sub-item">Level 1</span>
-                        <span class="caret"></span>
-                      </a>
-                      <div class="collapse" id="subnav1">
-                        <ul class="nav nav-collapse subnav">
-                          <li>
-                            <a href="#">
-                              <span class="sub-item">Level 2</span>
-                            </a>
-                          </li>
-                          <li>
-                            <a href="#">
-                              <span class="sub-item">Level 2</span>
-                            </a>
-                          </li>
-                        </ul>
-                      </div>
-                    </li>
-                    <li>
-                      <a data-bs-toggle="collapse" href="#subnav2">
-                        <span class="sub-item">Level 1</span>
-                        <span class="caret"></span>
-                      </a>
-                      <div class="collapse" id="subnav2">
-                        <ul class="nav nav-collapse subnav">
-                          <li>
-                            <a href="#">
-                              <span class="sub-item">Level 2</span>
-                            </a>
-                          </li>
-                        </ul>
-                      </div>
-                    </li>
-                    <li>
-                      <a href="#">
-                        <span class="sub-item">Level 1</span>
-                      </a>
-                    </li>
-                  </ul>
-                </div>
-              </li> 
-            </div>
-            -->
+           
 
             </ul>
           </div>
@@ -392,7 +174,7 @@
                       <i class="fa fa-search search-icon"></i>
                     </button>
                   </div>
-                  <form action="{{ route('kelas.siswa') }}" method="GET">
+                  <form action="{{ route('siswa.index') }}" method="GET">
                     <input type="search" name="search" id="searchInput" class="form-control mx-sm-3" placeholder="Search">
                 </form>
                 </div>
@@ -426,11 +208,6 @@
                     </form>
                   </ul>
                 </li>
-
-                
-                
-                
-
                 
               </ul>
             </div>
@@ -449,16 +226,17 @@
               </div>
               <div class="ms-md-auto py-2 py-md-0">
                 
+<!---------------------- MOdal ------------------------------->
                 <button type="button" class="btn btn-outline-dark d-flex justify-content-end" data-bs-toggle="modal" data-bs-target="#tambahdata">Tambah Siswa</button>
-                <div class="modal fade" id="tambahdata" tabindex="-1" aria-labelledby="tambahdatakelas" aria-hidden="true">
+                <div class="modal fade" id="tambahdata" tabindex="-1" aria-labelledby="tambahdatasiswa" aria-hidden="true">
                   <div class="modal-dialog">
                     <div class="modal-content">
                       <div class="modal-header">
-                        <h1 class="modal-title fs-5" id="tambahdatakelas">Tambah Siswa</h1>
+                        <h1 class="modal-title fs-5" id="tambahdatasiswa">Tambah Siswa</h1>
                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                       </div>
                       <div class="modal-body">
-                        <form action="/insertdata" method="POST" enctype="multipart/form-data">
+                        <form id="tambahSiswaForm" action="{{ url('/store') }}" method="POST">
                           @csrf
                           <label class="form-label">Nis</label>
                           <input type="text" name="nis" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
@@ -475,7 +253,6 @@
                             @endforeach
                           </select>
                          
-                        
                       </div>
                       <div class="modal-footer">
                         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
@@ -486,6 +263,7 @@
                   </div>
                 </div>
 
+    <!----------------------------------------------------->
               </div>
             </div>
             
@@ -525,44 +303,38 @@
                   <div class="card-body p-0">
                     <div class="table-responsive text-center">
                       <!-- Projects table -->
-                      <table class="table align-items-center mb-0">
-                        <thead class="thead-light">
-                          <tr>
-                            <th scope="col">No</th>
-                            <th scope="col" class="text-center">NIS</th>
-                            <th scope="col" class="text-center">Nama</th>
-                            <th scope="col" class="text-center">Kelas</th>
-                            <th scope="col" class="text-center">Aksi</th>
-                          </tr>
-                        </thead>
+                        <table class="table align-items-center mb-0" id="dataTable"> 
+                          <thead class="thead-light">
+                            <tr>
+                              <th scope="col">No</th>
+                              <th scope="col" class="text-center">NIS</th>
+                              <th scope="col" class="text-center">Nama</th>
+                              <th scope="col" class="text-center">Kelas</th>
+                              <th scope="col" class="text-center">Aksi</th>
+                            </tr>
+                          </thead>
 
-                        @php
-                          $no = 1;
-                        @endphp
+                          @php
+                            $no = 1;
+                          @endphp
 
-                        <tbody>
-                        @foreach ($siswa as $row)
-                          <tr>
-                            <td>{{ $no++ }}</td> <!-- no -->
-                            <td>{{ $row->nis }}</td> <!-- kelas -->
-                            <td>{{ $row->nama }}</td> <!-- kelas -->
-                            <td>{{ $row->kelas->kelas }} {{ $row->kelas->jurusan }}</td> <!-- kelas -->
-                            <td> <!-- action btn -->
-                              
-                                
-                                <a href="/editdata/{{ $row->id }}" class="btn btn-outline-primary">Edit Data</a>
-                            
-                                <a href="/delete/{{ $row->id }}" class="btn btn-outline-danger">Hapus Data</a>
-                            <!--
-                                <a href="#" class="btn btn-outline-danger delete" data-id="">Hapus Data</a>
-                            -->
-                            </td>
-                          </tr>
-                        
-                          @endforeach
+                          <tbody>
+                          @foreach ($siswa as $row)
+                            <tr>
+                              <td>{{ $no++ }}</td> <!-- no -->
+                              <td>{{ $row->nis }}</td> <!--  -->
+                              <td>{{ $row->nama }}</td> <!--  -->
+                              <td>{{ $row->kelas->kelas }} {{ $row->kelas->jurusan }}</td> <!--  -->
+                              <td> <!-- action btn -->
+                                  <a href="/editdatasiswa/{{ $row->id }}" class="btn btn-outline-primary">Edit Data</a>
+                                  <a href="javascript:void(0)" class="btn btn-outline-danger delete" data-id="{{ $row->id }}">Hapus Data</a>
+                              </td>
+                            </tr>
+                          
+                            @endforeach
 
-                        </tbody>
-                      </table>
+                          </tbody>
+                        </table>
                     </div>
                   </div>
 
@@ -574,201 +346,11 @@
 
       </div> <!-- div wrap -->
 
-      <!-- Custom template | don't include it in your project! 
-      <div class="custom-template">
-        <div class="title">Settings</div>
-        <div class="custom-content">
-          <div class="switcher">
-            <div class="switch-block">
-              <h4>Logo Header</h4>
-              <div class="btnSwitch">
-                <button
-                  type="button"
-                  class="selected changeLogoHeaderColor"
-                  data-color="dark"
-                ></button>
-                <button
-                  type="button"
-                  class="changeLogoHeaderColor"
-                  data-color="blue"
-                ></button>
-                <button
-                  type="button"
-                  class="changeLogoHeaderColor"
-                  data-color="purple"
-                ></button>
-                <button
-                  type="button"
-                  class="changeLogoHeaderColor"
-                  data-color="light-blue"
-                ></button>
-                <button
-                  type="button"
-                  class="changeLogoHeaderColor"
-                  data-color="green"
-                ></button>
-                <button
-                  type="button"
-                  class="changeLogoHeaderColor"
-                  data-color="orange"
-                ></button>
-                <button
-                  type="button"
-                  class="changeLogoHeaderColor"
-                  data-color="red"
-                ></button>
-                <button
-                  type="button"
-                  class="changeLogoHeaderColor"
-                  data-color="white"
-                ></button>
-                <br />
-                <button
-                  type="button"
-                  class="changeLogoHeaderColor"
-                  data-color="dark2"
-                ></button>
-                <button
-                  type="button"
-                  class="changeLogoHeaderColor"
-                  data-color="blue2"
-                ></button>
-                <button
-                  type="button"
-                  class="changeLogoHeaderColor"
-                  data-color="purple2"
-                ></button>
-                <button
-                  type="button"
-                  class="changeLogoHeaderColor"
-                  data-color="light-blue2"
-                ></button>
-                <button
-                  type="button"
-                  class="changeLogoHeaderColor"
-                  data-color="green2"
-                ></button>
-                <button
-                  type="button"
-                  class="changeLogoHeaderColor"
-                  data-color="orange2"
-                ></button>
-                <button
-                  type="button"
-                  class="changeLogoHeaderColor"
-                  data-color="red2"
-                ></button>
-              </div>
-            </div>
-            <div class="switch-block">
-              <h4>Navbar Header</h4>
-              <div class="btnSwitch">
-                <button
-                  type="button"
-                  class="changeTopBarColor"
-                  data-color="dark"
-                ></button>
-                <button
-                  type="button"
-                  class="changeTopBarColor"
-                  data-color="blue"
-                ></button>
-                <button
-                  type="button"
-                  class="changeTopBarColor"
-                  data-color="purple"
-                ></button>
-                <button
-                  type="button"
-                  class="changeTopBarColor"
-                  data-color="light-blue"
-                ></button>
-                <button
-                  type="button"
-                  class="changeTopBarColor"
-                  data-color="green"
-                ></button>
-                <button
-                  type="button"
-                  class="changeTopBarColor"
-                  data-color="orange"
-                ></button>
-                <button
-                  type="button"
-                  class="changeTopBarColor"
-                  data-color="red"
-                ></button>
-                <button
-                  type="button"
-                  class="selected changeTopBarColor"
-                  data-color="white"
-                ></button>
-                <br />
-                <button
-                  type="button"
-                  class="changeTopBarColor"
-                  data-color="dark2"
-                ></button>
-                <button
-                  type="button"
-                  class="changeTopBarColor"
-                  data-color="blue2"
-                ></button>
-                <button
-                  type="button"
-                  class="changeTopBarColor"
-                  data-color="purple2"
-                ></button>
-                <button
-                  type="button"
-                  class="changeTopBarColor"
-                  data-color="light-blue2"
-                ></button>
-                <button
-                  type="button"
-                  class="changeTopBarColor"
-                  data-color="green2"
-                ></button>
-                <button
-                  type="button"
-                  class="changeTopBarColor"
-                  data-color="orange2"
-                ></button>
-                <button
-                  type="button"
-                  class="changeTopBarColor"
-                  data-color="red2"
-                ></button>
-              </div>
-            </div>
-            <div class="switch-block">
-              <h4>Sidebar</h4>
-              <div class="btnSwitch">
-                <button
-                  type="button"
-                  class="changeSideBarColor"
-                  data-color="white"
-                ></button>
-                <button
-                  type="button"
-                  class="selected changeSideBarColor"
-                  data-color="dark"
-                ></button>
-                <button
-                  type="button"
-                  class="changeSideBarColor"
-                  data-color="dark2"
-                ></button>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="custom-toggle">
-          <i class="icon-settings"></i>
-        </div>
-      </div>
-       End Custom template -->
     </div>
+
+    
+    
+  <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
     <!--   Core JS Files   -->
     <script src="assets/js/core/jquery-3.7.1.min.js"></script>
     <script src="assets/js/core/popper.min.js"></script>
@@ -833,6 +415,151 @@
         fillColor: "rgba(255, 165, 52, .14)",
       });
     </script>
+
+<!---------------------------- Sweetalert ------------------------------------------>
+
+  <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+
+  <script>
+
+    $('.delete').click(function(){
+      var siswaid = $(this).attr('data-id');
+      swal({
+      title: "Yakin?",
+      text: "Kamu akan menghapus data "+siswaid+"!",
+      icon: "warning",
+      buttons: true,
+      dangerMode: true,
+    })
+    .then((willDelete) => {
+      if (willDelete) {
+        window.location = "/deletesiswa/"+siswaid+""
+        swal("Data berhasil dihapus!", {
+          icon: "success",
+        });
+      } else {
+        swal("Data kamu aman!");
+      }
+    });
+
+    });
+
+  </script>
+
+<!--------------------- sweetalert ----------------->
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/2.1.2/sweetalert.min.js"></script>
+
+<script>
+  document.addEventListener('DOMContentLoaded', function () {
+      document.querySelectorAll('.delete').forEach(function (button) {
+          button.addEventListener('click', function () {
+              var dataId = this.getAttribute('data-id');
+              swal({
+                  title: "Apakah kamu yakin?",
+                  text: "Data ini akan dihapus secara permanen!",
+                  icon: "warning",
+                  buttons: true,
+                  dangerMode: true,
+              }).then((willDelete) => {
+                  if (willDelete) {
+                      window.location.href = "/deletesiswa/" + dataId;
+                  }
+              });
+          });
+      });
+  });
+</script>
+
+<!-- ------------------ tambah data ----------------- -->
+
+<script>
+    $(document).ready(function() {
+        // AJAX setup with CSRF token
+        $.ajaxSetup({
+            headers: {
+                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+            }
+        });
+
+       
+                // Submit form using AJAX
+        $('#tambahSiswaForm').on('submit', function(e) {
+            e.preventDefault(); // Prevent default form submission
+
+            var formData = $(this).serialize();
+
+            $.ajax({
+                url: '/insertdatasiswa', // Adjust URL to match your route
+                type: 'POST',
+                data: formData,
+                success: function(response) {
+                    $('#tambahdata').modal('hide');
+                    swal("Berhasil!", "Data siswa telah ditambahkan.", "success").then(() => {
+                        var rowCount = $('#dataTable tr').length;
+                        var newNo = rowCount;
+
+                        var newRow = '<tr id="row-' + response.id + '">' +
+                            '<td>' + newNo + '</td>' + // Use newNo for no
+                            '<td>' + response.nis + '</td>' +
+                            '<td>' + response.nama + '</td>' +
+                            '<td>' + response.kelas + ' ' + response.jurusan + '</td>' +
+                            '<td>' +
+                                '<a href="/editdatasiswa/' + response.id + '" class="btn btn-outline-primary">Edit Data</a> ' +
+                                '<a href="javascript:void(0)" class="btn btn-outline-danger delete" data-id="' + response.id + '">Hapus Data</a>' +
+                            '</td>' +
+                            '</tr>';
+                        $('#dataTable').append(newRow);
+                        sortTable(); // Sort table to reindex row numbers
+                    });
+                },
+                error: function(xhr) {
+                    swal("Terjadi kesalahan!", "Gagal menambahkan data siswa.", "error");
+                }
+            });
+        });
+
+        function sortTable() {
+            $('#dataTable tr').each(function(index) {
+                $(this).find('td').eq(0).text(index + 1); // Reindex row numbers, starting from 1
+            });
+        }
+
+        // Delete data using AJAX
+        $(document).on('click', '.delete', function() {
+            var siswaid = $(this).data('id');
+
+            swal({
+                title: "Apakah kamu yakin?",
+                text: "Data ini akan dihapus secara permanen! ",
+                icon: "warning",
+                buttons: true,
+                dangerMode: true,
+            }).then((willDelete) => {
+                if (willDelete) {
+                    $.ajax({
+                        url: '/deletesiswa/' + siswaid,
+                        type: 'DELETE',
+                        success: function(response) {
+                            $('#row-' + siswaid).remove();
+                            swal("Data berhasil dihapus!", {
+                                icon: "success",
+                            }).then(() => {
+                                sortTable();
+                            });
+                        },
+                        error: function(xhr) {
+                            swal("Terjadi kesalahan!", "Gagal menghapus data siswa.", "error");
+                        }
+                    });
+                } else {
+                    swal("Data kamu aman!");
+                }
+            });
+        });
+    });
+</script>
+
 
 
   </body>

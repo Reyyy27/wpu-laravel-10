@@ -24,19 +24,19 @@ Route::get('/', function () {
 
 Route::get('/',[KelasController::class, 'index'])->name('kelas.index');
 
-Route::get('/siswa',[SiswaController::class, 'index'])->name('kelas.siswa');
+Route::get('/siswa',[SiswaController::class, 'index'])->name('siswa.index');
 
 Route::get('/mapel',[MapelController::class, 'index'])->name('kelas.mapel');
 
 Route::get('/guru',[GuruController::class, 'index'])->name('kelas.guru');
 
-Route::post('/insertdatakelas',[KelasController::class, 'insertdata'])->name('insertdata');
-Route::post('/insertdata',[SiswaController::class, 'insertdata'])->name('insertdata');
+//Route::post('/insertdatakelas',[KelasController::class, 'insertdata'])->name('insertdata');
+//Route::post('/insertdata',[SiswaController::class, 'insertdata'])->name('insertdata');
 Route::post('/insertdatamapel',[MapelController::class, 'insertdata'])->name('insertdata');
 Route::post('/insertdataguru',[GuruController::class, 'insertdata'])->name('insertdata');
 
 Route::get('/editdatakelas/{id}',[KelasController::class, 'editdata'])->name('editdata');
-Route::get('/editdata/{id}',[SiswaController::class, 'editdata'])->name('editdata');
+//Route::get('/editdata/{id}',[SiswaController::class, 'editdata'])->name('editdata');
 Route::get('/editdatamapel/{id}',[MapelController::class, 'editdata'])->name('editdata');
 Route::get('/editdataguru/{id}',[GuruController::class, 'editdata'])->name('editdata');
 
@@ -45,7 +45,20 @@ Route::post('/updatedata/{id}',[SiswaController::class, 'updatedata'])->name('up
 Route::post('/updatedatamapel/{id}',[MapelController::class, 'updatedata'])->name('updatedata');
 Route::post('/updatedataguru/{id}',[GuruController::class, 'updatedata'])->name('updatedata');
 
-Route::get('/deletekelas/{id}',[KelasController::class, 'delete'])->name('delete');
-Route::get('/delete/{id}',[SiswaController::class, 'delete'])->name('delete');
+//Route::get('/deletekelas/{id}',[KelasController::class, 'delete'])->name('delete');
+//Route::get('/delete/{id}',[SiswaController::class, 'delete'])->name('delete');
 Route::get('/deletemapel/{id}',[MapelController::class, 'delete'])->name('delete');
 Route::get('/deleteguru/{id}',[GuruController::class, 'delete'])->name('delete');
+
+
+//
+Route::resource('kelas', KelasController::class);
+Route::post('/insertdatakelas', [KelasController::class, 'store']);
+Route::delete('/deletedatakelas/{id}', [KelasController::class, 'delete'])->name('kelas.delete');
+
+//
+Route::resource('siswa', SiswaController::class);
+Route::post('/insertdatasiswa', [SiswaController::class, 'store']);
+Route::delete('/deletesiswa/{id}', [SiswaController::class, 'delete'])->name('siswa.delete');
+
+Route::get('/editdatasiswa/{id}',[SiswaController::class, 'editdata'])->name('editdata');

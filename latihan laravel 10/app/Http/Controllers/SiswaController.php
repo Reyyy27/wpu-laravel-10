@@ -25,6 +25,26 @@ class SiswaController extends Controller
     
     }
 
+    public function store(Request $request){
+        
+        $validatedData = $request->validate([
+            'nis' => 'required',
+            'nama' => 'required|string',
+            'kelas_id' => 'required|exists:kelas,id',   
+        ]);
+
+        $siswa = Siswa::create($validatedData);
+        
+        return response()->json([
+            'id' => $siswa->id,
+            'nis' => $siswa->nis,
+            'nama' => $siswa->nama,
+            'kelas' => $siswa->kelas->kelas,
+            'jurusan' => $siswa->kelas->jurusan,
+        ]);
+
+    }
+
     public function create()
     {
         return view('siswa');
@@ -34,7 +54,7 @@ class SiswaController extends Controller
     {
         siswa::create($request->all());
 
-        return redirect()->route('kelas.siswa')->with('success','Data Berhasil Di Tambahkan');
+        return redirect()->route('siswa.index')->with('success','Data Berhasil Di Tambahkan');
     }
 
     public function editdata($id){
@@ -48,19 +68,20 @@ class SiswaController extends Controller
     public function updatedata(Request $request, $id){
 
         $siswa = siswa::find($id);
-        
-
         $siswa->update($request->all()); 
          
-
-        return redirect()->route('kelas.siswa')->with('success','Data Berhasil Di Update');
+        return redirect()->route('siswa.index')->with('success','Data Berhasil Di Update');
     }
 
-    public function delete($id){
+    public function delete($id)
+{
+    $siswa = siswa::find($id);
 
-        $siswa = siswa::find($id);
+    if ($siswa) {
         $siswa->delete();
-
-        return redirect()->route('kelas.siswa')->with('success','Data Berhasil Di Hapus');
+        return response()->json(['success' => true]);
     }
+
+    return response()->json(['success' => false], 404);
+}
 }
