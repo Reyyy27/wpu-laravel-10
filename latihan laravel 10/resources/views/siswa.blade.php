@@ -472,94 +472,85 @@
 </script>
 
 <!-- ------------------ tambah data ----------------- -->
-
 <script>
-    $(document).ready(function() {
-        // AJAX setup with CSRF token
-        $.ajaxSetup({
-            headers: {
-                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-            }
-        });
-
-       
-                // Submit form using AJAX
-        $('#tambahSiswaForm').on('submit', function(e) {
-            e.preventDefault(); // Prevent default form submission
-
-            var formData = $(this).serialize();
-
-            $.ajax({
-                url: '/insertdatasiswa', // Adjust URL to match your route
-                type: 'POST',
-                data: formData,
-                success: function(response) {
-                    $('#tambahdata').modal('hide');
-                    swal("Berhasil!", "Data siswa telah ditambahkan.", "success").then(() => {
-                        var rowCount = $('#dataTable tr').length;
-                        var newNo = rowCount;
-
-                        var newRow = '<tr id="row-' + response.id + '">' +
-                            '<td>' + newNo + '</td>' + // Use newNo for no
-                            '<td>' + response.nis + '</td>' +
-                            '<td>' + response.nama + '</td>' +
-                            '<td>' + response.kelas + ' ' + response.jurusan + '</td>' +
-                            '<td>' +
-                                '<a href="/editdatasiswa/' + response.id + '" class="btn btn-outline-primary">Edit Data</a> ' +
-                                '<a href="javascript:void(0)" class="btn btn-outline-danger delete" data-id="' + response.id + '">Hapus Data</a>' +
-                            '</td>' +
-                            '</tr>';
-                        $('#dataTable').append(newRow);
-                        sortTable(); // Sort table to reindex row numbers
-                    });
-                },
-                error: function(xhr) {
-                    swal("Terjadi kesalahan!", "Gagal menambahkan data siswa.", "error");
-                }
-            });
-        });
-
-        function sortTable() {
-            $('#dataTable tr').each(function(index) {
-                $(this).find('td').eq(0).text(index + 1); // Reindex row numbers, starting from 1
-            });
-        }
-
-        // Delete data using AJAX
-        $(document).on('click', '.delete', function() {
-            var siswaid = $(this).data('id');
-
-            swal({
-                title: "Apakah kamu yakin?",
-                text: "Data ini akan dihapus secara permanen! ",
-                icon: "warning",
-                buttons: true,
-                dangerMode: true,
-            }).then((willDelete) => {
-                if (willDelete) {
-                    $.ajax({
-                        url: '/deletesiswa/' + siswaid,
-                        type: 'DELETE',
-                        success: function(response) {
-                            $('#row-' + siswaid).remove();
-                            swal("Data berhasil dihapus!", {
-                                icon: "success",
-                            }).then(() => {
-                                sortTable();
-                            });
-                        },
-                        error: function(xhr) {
-                            swal("Terjadi kesalahan!", "Gagal menghapus data siswa.", "error");
-                        }
-                    });
-                } else {
-                    swal("Data kamu aman!");
-                }
-            });
-        });
+  $(document).ready(function() {
+    // AJAX setup with CSRF token
+    $.ajaxSetup({
+      headers: {
+        'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+      }
     });
-</script>
 
+    // Submit form using AJAX
+    $('#tambahSiswaForm').on('submit', function(e) {
+      e.preventDefault(); // Prevent default form submission
+
+      var formData = $(this).serialize();
+
+      $.ajax({
+        url: '/insertdatasiswa', // Adjust URL to match your route
+        type: 'POST',
+        data: formData,
+        success: function(response) {
+          $('#tambahdata').modal('hide');
+          swal("Berhasil!", "Data siswa telah ditambahkan.", "success").then(() => {
+            var rowCount = $('#dataTable tbody tr').length;
+            var newNo = rowCount + 1; // Increment the row count for the new row
+
+            var newRow = '<tr id="row-' + response.id + '">' +
+              '<td>' + newNo + '</td>' +
+              '<td>' + response.nis + '</td>' +
+              '<td>' + response.nama + '</td>' +
+              '<td>' + response.kelas + ' ' + response.jurusan + '</td>' +
+              '<td>' +
+                '<a href="/editdatasiswa/' + response.id + '" class="btn btn-outline-primary">Edit Data</a>' +
+                '<a href="javascript:void(0)" class="btn btn-outline-danger delete" data-id="' + response.id + '">Hapus Data</a>' +
+              '</td>' +
+            '</tr>';
+
+            $('#dataTable tbody').append(newRow);
+          });
+        },
+        error: function(response) {
+          swal("Gagal!", "Data siswa gagal ditambahkan.", "error");
+        }
+      });
+    });
+
+    // Delete row using AJAX
+    $('#dataTable').on('click', '.delete', function() {
+      var rowId = $(this).data('id');
+      var row = $(this).closest('tr');
+
+      swal({
+        title: "Apakah Anda yakin?",
+        text: "Data ini akan dihapus dan tidak bisa dikembalikan!",
+        icon: "warning",
+        buttons: true,
+        dangerMode: true,
+      }).then((willDelete) => {
+        if (willDelete) {
+          $.ajax({
+            url: '/deletedatasiswa/' + rowId, // Adjust URL to match your route
+            type: 'DELETE',
+            success: function(response) {
+              row.remove();
+              swal("Berhasil!", "Data siswa telah dihapus.", "success");
+
+              // Update row numbers
+              $('#dataTable tbody tr').each(function(index) {
+                $(this).find('td:first').text(index + 1);
+              });
+            },
+            error: function(response) {
+              swal("Gagal!", "Data siswa gagal dihapus.", "error");
+            }
+          });
+        }
+      });
+    });
+  });
+</script>
 
 
   </body>

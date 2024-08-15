@@ -59,6 +59,6 @@ Route::delete('/deletedatakelas/{id}', [KelasController::class, 'delete'])->name
 //
 Route::resource('siswa', SiswaController::class);
 Route::post('/insertdatasiswa', [SiswaController::class, 'store']);
-Route::delete('/deletesiswa/{id}', [SiswaController::class, 'delete'])->name('siswa.delete');
+Route::delete('/deletedatasiswa/{id}', [SiswaController::class, 'delete'])->name('siswa.delete');
 
 Route::get('/editdatasiswa/{id}',[SiswaController::class, 'editdata'])->name('editdata');
